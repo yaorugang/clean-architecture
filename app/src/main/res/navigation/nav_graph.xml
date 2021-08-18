@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/car_list_fragment">
+
+    <fragment
+        android:id="@+id/car_list_fragment"
+        android:label="@string/car_list_title"
+        android:name="com.yaorugang.afterpay.ui.carlist.CarListFragment"
+        tools:layout="@layout/fragment_car_list">
+
+        <action
+            android:id="@+id/action_to_car_details_fragment"
+            app:destination="@id/car_details_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/car_details_fragment"
+        android:label="@string/car_details_title"
+        android:name="com.yaorugang.afterpay.ui.cardetails.CarDetailsFragment"
+        tools:layout="@layout/fragment_car_details">
+
+        <argument
+            android:name="carDetails"
+            app:argType="com.yaorugang.afterpay.domain.model.Car" />
+    </fragment>
+</navigation>
