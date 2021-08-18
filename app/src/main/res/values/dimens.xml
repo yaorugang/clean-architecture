@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- padding -->
+    <dimen name="standard_padding_size">16dp</dimen>
+
+    <!-- margin -->
+    <dimen name="standard_margin_size">16dp</dimen>
+
+    <!-- text size -->
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="body_text_size">18sp</dimen>
+
+    <!-- car item -->
+    <dimen name="car_image_width">80dp</dimen>
+    <dimen name="car_image_height">80dp</dimen>
+</resources>

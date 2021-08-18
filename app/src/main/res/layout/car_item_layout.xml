@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="carItem"
+            type="com.yaorugang.afterpay.ui.carlist.CarItem" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/list_item_card_view"
         android:layout_width="match_parent"
@@ -11,10 +17,51 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="24dp">
+            android:paddingHorizontal="@dimen/standard_padding_size"
+            android:paddingVertical="@dimen/standard_padding_size">
 
+            <ImageView
+                android:id="@+id/car_image"
+                android:layout_width="@dimen/car_image_width"
+                android:layout_height="@dimen/car_image_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_default_car"
+                imageUrl="@{carItem.imageUrl}"/>
 
+            <TextView
+                android:id="@+id/car_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?textAppearanceTitle"
+                app:layout_constraintStart_toEndOf="@id/car_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="@dimen/standard_margin_size"
+                android:text="@{carItem.title}"
+                tools:text="2019 Honda Civic"/>
+
+            <TextView
+                android:id="@+id/car_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?textAppearanceBody"
+                app:layout_constraintStart_toStartOf="@id/car_title"
+                app:layout_constraintTop_toBottomOf="@id/car_title"
+                app:layout_constraintBottom_toTopOf="@id/car_extra_info"
+                android:text="@{carItem.price}"
+                tools:text="$19000"/>
+
+            <TextView
+                android:id="@+id/car_extra_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/car_image"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{carItem.extraInfo}"
+                tools:text="Origin from Japan, red color, engine with 4 Cylinders and 130 horsepower."/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

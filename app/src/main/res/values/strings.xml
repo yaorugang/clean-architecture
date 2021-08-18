@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Afterpay</string>
 
+    <string name="currency_symbol">$</string>
+
     <string name="car_list_title">Cars</string>
     <string name="car_details_title">Car Details</string>
+    <string name="car_color">%s car</string>
+    <string name="car_origin">,&#160;origin from %s</string>
+    <string name="car_engine_cylinders">,&#160;engine has %d cylinders</string>
+    <string name="car_engine_horsepower">&#160;and %d horsepower</string>
 </resources>
