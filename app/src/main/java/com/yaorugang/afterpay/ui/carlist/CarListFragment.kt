@@ -49,7 +49,7 @@ class CarListFragment : DaggerFragment() {
 
         binding.swipeRefreshLayout.apply {
             setOnRefreshListener {
-                viewModel.fetchCars()
+                viewModel.onRefresh()
             }
             setColorSchemeColors(Color.GREEN) // Set loading spinner color
         }
@@ -59,6 +59,6 @@ class CarListFragment : DaggerFragment() {
         })
 
         // initial fetching cars
-        viewModel.fetchCars()
+        viewModel.onRefresh()
     }
 }

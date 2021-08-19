@@ -29,30 +29,36 @@ class CarListViewModel @Inject constructor(
     private val _errorData = MutableLiveData<ErrorData>()
     val errorData: LiveData<ErrorData> = _errorData
 
-    fun fetchCars() {
-        viewModelScope.launch {
-            _showLoadingSpinner.postValue(Event(true))
-            try {
-                _carItems.value = carsManager.getCars()
-                setError(false)
-            } catch (e: EmptyDataException) {
-                setError(true, ErrorData(
+    fun onRefresh() = viewModelScope.launch {
+        fetchCars()
+    }
+
+    suspend fun fetchCars() {
+        _showLoadingSpinner.value = Event(true)
+        try {
+            _carItems.value = carsManager.getCars()
+            setError(false)
+        } catch (e: EmptyDataException) {
+            setError(
+                true, ErrorData(
                     errorImageRes = R.drawable.ic_empty_data,
                     errorMessageRes = R.string.empty_car_list_error
-                ))
-            } catch (e: DomainException) {
-                setError(true, ErrorData(
+                )
+            )
+        } catch (e: DomainException) {
+            setError(
+                true, ErrorData(
                     errorImageRes = R.drawable.ic_something_wrong,
                     errorMessageRes = R.string.car_list_fetching_error
-                ))
-            } finally {
-                _showLoadingSpinner.postValue(Event(false))
-            }
+                )
+            )
+        } finally {
+            _showLoadingSpinner.value = Event(false)
         }
     }
 
     private fun setError(showError: Boolean, errorData: ErrorData? = null) {
-        _errorData.postValue(errorData)
-        _showError.postValue(showError)
+        _errorData.value = errorData
+        _showError.value = showError
     }
 }
