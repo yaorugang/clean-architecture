@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.203125" />
+        <entry key="app/src/main/res/drawable/ic_empty_data.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/drawable/ic_something_wrong.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable/space_divider.xml" value="0.39814814814814814" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/car_details_layout.xml" value="0.2265625" />

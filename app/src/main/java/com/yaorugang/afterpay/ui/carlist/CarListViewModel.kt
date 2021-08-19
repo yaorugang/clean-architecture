@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.yaorugang.afterpay.R
 import com.yaorugang.afterpay.domain.exception.DomainException
 import com.yaorugang.afterpay.domain.exception.EmptyDataException
 import com.yaorugang.afterpay.domain.manager.CarsManager
@@ -22,18 +23,36 @@ class CarListViewModel @Inject constructor(
     private val _showLoadingSpinner = MutableLiveData(Event(false))
     val showLoadingSpinner: LiveData<Event<Boolean>> = _showLoadingSpinner
 
+    private val _showError = MutableLiveData(false)
+    val showError: LiveData<Boolean> = _showError
+
+    private val _errorData = MutableLiveData<ErrorData>()
+    val errorData: LiveData<ErrorData> = _errorData
+
     fun fetchCars() {
         viewModelScope.launch {
             _showLoadingSpinner.postValue(Event(true))
             try {
                 _carItems.value = carsManager.getCars()
+                setError(false)
             } catch (e: EmptyDataException) {
-
+                setError(true, ErrorData(
+                    errorImageRes = R.drawable.ic_empty_data,
+                    errorMessageRes = R.string.empty_car_list_error
+                ))
             } catch (e: DomainException) {
-
+                setError(true, ErrorData(
+                    errorImageRes = R.drawable.ic_something_wrong,
+                    errorMessageRes = R.string.car_list_fetching_error
+                ))
             } finally {
                 _showLoadingSpinner.postValue(Event(false))
             }
         }
+    }
+
+    private fun setError(showError: Boolean, errorData: ErrorData? = null) {
+        _errorData.postValue(errorData)
+        _showError.postValue(showError)
     }
 }

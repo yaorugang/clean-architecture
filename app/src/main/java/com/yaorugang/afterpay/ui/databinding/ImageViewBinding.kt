@@ -3,6 +3,7 @@ package com.yaorugang.afterpay.ui.databinding
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -30,5 +31,12 @@ fun setImage(imageView: ImageView, imageUrl: String?) {
                 }
             }
         }
+    }
+}
+
+@BindingAdapter("imageRes")
+fun setImage(imageView: ImageView, @DrawableRes imageRes: Int) {
+    if (imageRes != 0) {
+        imageView.setImageResource(imageRes)
     }
 }

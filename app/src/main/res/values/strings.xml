@@ -9,4 +9,7 @@
     <string name="car_origin">,&#160;origin from %s</string>
     <string name="car_engine_cylinders">,&#160;engine has %d cylinders</string>
     <string name="car_engine_horsepower">&#160;and %d horsepower</string>
+
+    <string name="empty_car_list_error">Car collection is empty!</string>
+    <string name="car_list_fetching_error">Something wrong while fetching cars!</string>
 </resources>
