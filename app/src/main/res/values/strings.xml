@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Afterpay</string>
 
+    <string name="menu_information">Infomation</string>
     <string name="currency_symbol">$</string>
 
     <string name="car_list_title">Cars</string>
-    <string name="car_details_title">Car Details</string>
     <string name="car_color">%s car</string>
     <string name="car_origin">,&#160;origin from %s</string>
     <string name="car_engine_cylinders">,&#160;engine has %d cylinders</string>
@@ -12,4 +12,7 @@
 
     <string name="empty_car_list_error">Car collection is empty!</string>
     <string name="car_list_fetching_error">Something wrong while fetching cars!</string>
+
+    <string name="operation_instruction_title">Operation Instruction</string>
+    <string name="information_description">1. Swipe down to refresh the car list.</string>
 </resources>

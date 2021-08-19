@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yaorugang.afterpay.R
 import com.yaorugang.afterpay.databinding.FragmentCarListBinding
 import com.yaorugang.afterpay.injection.ViewModelFactory
+import com.yaorugang.afterpay.ui.MainActivity
 import com.yaorugang.afterpay.ui.utils.EventObserver
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -30,11 +31,13 @@ class CarListFragment : DaggerFragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        // show settings menu on the toolbar
+        (activity as MainActivity).showSettingsMenu(true)
 
         binding.recyclerview.apply {
             layoutManager = LinearLayoutManager(context)

@@ -12,18 +12,15 @@
         tools:layout="@layout/fragment_car_list">
 
         <action
-            android:id="@+id/action_to_car_details_fragment"
-            app:destination="@id/car_details_fragment" />
+            android:id="@+id/action_to_information_fragment"
+            app:destination="@id/information_fragment" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/car_details_fragment"
-        android:label="@string/car_details_title"
-        android:name="com.yaorugang.afterpay.ui.cardetails.CarDetailsFragment"
-        tools:layout="@layout/fragment_car_details">
+        android:id="@+id/information_fragment"
+        android:label="@string/menu_information"
+        android:name="com.yaorugang.afterpay.ui.information.InformationFragment"
+        tools:layout="@layout/fragment_information" />
 
-        <argument
-            android:name="carDetails"
-            app:argType="com.yaorugang.afterpay.domain.model.Car" />
-    </fragment>
 </navigation>

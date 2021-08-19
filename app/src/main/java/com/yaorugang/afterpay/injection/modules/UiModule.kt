@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.yaorugang.afterpay.injection.ViewModelFactory
 import com.yaorugang.afterpay.ui.MainActivity
-import com.yaorugang.afterpay.ui.cardetails.CarDetailsFragment
-import com.yaorugang.afterpay.ui.cardetails.CarDetailsViewModel
+import com.yaorugang.afterpay.ui.information.InformationFragment
+import com.yaorugang.afterpay.ui.information.InformationViewModel
 import com.yaorugang.afterpay.ui.carlist.CarListFragment
 import com.yaorugang.afterpay.ui.carlist.CarListViewModel
 import dagger.Binds
@@ -26,7 +26,7 @@ abstract class UiModule {
     abstract fun carListFragment(): CarListFragment
 
     @ContributesAndroidInjector
-    abstract fun carDetailsFragment(): CarDetailsFragment
+    abstract fun informationFragment(): InformationFragment
 
     @Binds
     @IntoMap
@@ -35,6 +35,6 @@ abstract class UiModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CarDetailsViewModel::class)
-    abstract fun bindCarDetailsViewModel(viewModel: CarDetailsViewModel): ViewModel
+    @ViewModelKey(InformationViewModel::class)
+    abstract fun bindInformationViewModel(viewModel: InformationViewModel): ViewModel
 }
