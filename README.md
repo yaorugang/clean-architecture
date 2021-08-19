@@ -1,5 +1,12 @@
 _Rugang Yao. 19/08/2021_
 
+## Environment
+It's recommend to run this project on JDK1.8. Using JDK 11 and about version may cause you more time to adjust your system environment.
+
+To check and change your local JDK version, please refer to this link:
+
+https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
+
 
 ## Tech stack:
 | Category      | Technology                                            |
