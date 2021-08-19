@@ -1,5 +1,6 @@
 package com.yaorugang.afterpay.ui.carlist
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yaorugang.afterpay.R
 import com.yaorugang.afterpay.databinding.FragmentCarListBinding
 import com.yaorugang.afterpay.injection.ViewModelFactory
+import com.yaorugang.afterpay.ui.utils.EventObserver
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -28,6 +30,7 @@ class CarListFragment : DaggerFragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
@@ -40,10 +43,19 @@ class CarListFragment : DaggerFragment() {
             })
             adapter = CarListAdapter()
         }
-    }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.onStart()
+        binding.swipeRefreshLayout.apply {
+            setOnRefreshListener {
+                viewModel.fetchCars()
+            }
+            setColorSchemeColors(Color.GREEN) // Set loading spinner color
+        }
+
+        viewModel.showLoadingSpinner.observe(viewLifecycleOwner, EventObserver {
+            binding.swipeRefreshLayout.isRefreshing = it
+        })
+
+        // initial fetching cars
+        viewModel.fetchCars()
     }
 }

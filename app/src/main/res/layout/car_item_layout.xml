@@ -38,6 +38,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="@dimen/standard_margin_size"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:text="@{carItem.title}"
                 tools:text="2019 Honda Civic"/>
 
@@ -49,6 +51,8 @@
                 app:layout_constraintStart_toStartOf="@id/car_title"
                 app:layout_constraintTop_toBottomOf="@id/car_title"
                 app:layout_constraintBottom_toTopOf="@id/car_extra_info"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="@{carItem.price}"
                 tools:text="$19000"/>
 

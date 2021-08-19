@@ -8,6 +8,7 @@ import com.yaorugang.afterpay.domain.exception.DomainException
 import com.yaorugang.afterpay.domain.exception.EmptyDataException
 import com.yaorugang.afterpay.domain.manager.CarsManager
 import com.yaorugang.afterpay.domain.model.Car
+import com.yaorugang.afterpay.ui.utils.Event
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,18 +19,20 @@ class CarListViewModel @Inject constructor(
     private val _carItems = MutableLiveData<List<Car>>(emptyList())
     val carItems: LiveData<List<Car>> = _carItems
 
-    fun onStart() {
-        getCars()
-    }
+    private val _showLoadingSpinner = MutableLiveData(Event(false))
+    val showLoadingSpinner: LiveData<Event<Boolean>> = _showLoadingSpinner
 
-    private fun getCars() {
+    fun fetchCars() {
         viewModelScope.launch {
+            _showLoadingSpinner.postValue(Event(true))
             try {
                 _carItems.value = carsManager.getCars()
             } catch (e: EmptyDataException) {
 
             } catch (e: DomainException) {
 
+            } finally {
+                _showLoadingSpinner.postValue(Event(false))
             }
         }
     }
