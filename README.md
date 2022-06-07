@@ -2,7 +2,7 @@
 _Rugang Yao. 07/06/2022_
 
 ## Environment
-To run this project you need JDK 11 installed.
+To build this project you need JDK 11 installed.
 
 
 ## Tech stack:
