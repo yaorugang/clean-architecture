@@ -1,11 +1,7 @@
 _Rugang Yao. 19/08/2021_
 
 ## Environment
-It's recommend to run this project on JDK1.8. Using JDK 11 and about version may cause you more time to adjust your system environment.
-
-To check and change your local JDK version, please refer to this link:
-
-https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
+To run this project you need JDK 11 installed.
 
 
 ## Tech stack:
@@ -19,7 +15,7 @@ https://mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
 
 
 ## Architecture
-The project uses __CLEAN Architecture__, which comprise of 3 layers:
+The project uses __CLEAN Architecture__, which consist of 3 layers:
 
 ### Domain Layer
 * This is an independent layer contains only business logic written by pure kotlin, which means it doesn't refer to any android framework.
