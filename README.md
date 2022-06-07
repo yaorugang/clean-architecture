@@ -1,4 +1,5 @@
-_Rugang Yao. 19/08/2021_
+# Android CLEAN Architecture example
+_Rugang Yao. 07/06/2022_
 
 ## Environment
 To run this project you need JDK 11 installed.
